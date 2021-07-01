@@ -57,6 +57,7 @@
 <body>
 	<header>
 		<h1 class="masthead">Time of Day</h1>
+		<h2 id="greeting"></h2>
 	</header>
     <main>
 	 <header><h3>A JavaScript example by Jimmy Zebroski</h3></header>
@@ -70,14 +71,45 @@
 		 </ul>
 
 	 </p>
-	  <img src="http://dummyimage.com/300x400" alt="Picture of Me!" class="flexible" />
+	  <img id="pic" src="http://dummyimage.com/300x400" alt="Picture of Me!" class="flexible" />
      </main>
     <footer>
-      <small>&copy; 2013, All Rights Reserved ~
+      <small>&copy; 2020 - <span id="copyright">copy right goeds here</span>, All Rights Reserved ~
       <a href="https://validator.w3.org/check/referer" target="_blank">Valid HTML</a> ~
       <a href="https://jigsaw.w3.org/css-validator/check?uri=referer" target="_blank">Valid CSS</a>
       </small>
     </footer>
-    <!-- END Footer -->
+    <script>
+		let myDate = new Date();
+
+		let myText = '';
+		let myColor = '';
+		let myPic = 'images/morning.jpg';
+		let myHours=myDate.getHours();
+
+		//Line below for testing - Remove before placing in service.
+		myHours = 13;
+		
+		if(myHours<12){
+			myText="Good Morning";
+			myColor='orange';
+			myPic = 'images/morning.jpg';
+		}else{
+			myText="Good Afternoon";
+			myColor="green";
+			myPic = 'images/afternoon.jpg';
+		}
+		// console.log(myText);
+		document.getElementById("greeting").innerHTML=myText;
+		document.getElementById("greeting").style.color=myColor;
+		document.querySelector("HTML").style.backgroundColor=myColor;
+		document.getElementById("pic").src = myPic;
+
+
+
+
+		let myYear = myDate.getFullYear();
+		document.getElementById("copyright").innerHTML=myYear;
+	</script>
 </body>
 </html>
