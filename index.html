@@ -18,7 +18,7 @@
 			}
 		img.flexible {
 			float:right;
-			display:inline-block;
+			/* display:inline-block; */
 			padding:20px;
 			max-width:300px; /* actual size of image */
 			width:33%; /* approximate size taken on screen in maximum view */
@@ -88,16 +88,25 @@
 		let myHours=myDate.getHours();
 
 		//Line below for testing - Remove before placing in service.
-		myHours = 13;
+		// myHours =18;
+		// console.log(myHours);
 		
-		if(myHours<12){
+		if(myHours>=5 && myHours <12){
 			myText="Good Morning";
 			myColor='orange';
 			myPic = 'images/morning.jpg';
-		}else{
+		}else if(myHours>=12 && myHours <18){
 			myText="Good Afternoon";
 			myColor="green";
 			myPic = 'images/afternoon.jpg';
+		}else if(myHours>=18 && myHours <23){
+			myText="Good Evening";
+			myColor="blue";
+			myPic = 'images/evening.jpg';
+		}else{
+			myText="Good Night";
+			myColor="black";
+			myPic = 'images/night.jpg';
 		}
 		// console.log(myText);
 		document.getElementById("greeting").innerHTML=myText;
